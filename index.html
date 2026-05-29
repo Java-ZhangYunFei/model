@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>阿月今天吃什么</title>
+    <title>阿月今天喝什么</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -20,13 +20,13 @@
         }
         h1 {
             font-size: 42px;
-            color: #d63031;
+            color: #f0e68c;
             margin-bottom: 8px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         .subtitle {
             font-size: 16px;
-            color: #636e72;
+            color: #aaa;
             margin-bottom: 30px;
         }
         .wheel-wrapper {
@@ -127,13 +127,13 @@
 <body>
 
 <div class="container">
-    <h1>🥘 阿月今天吃什么</h1>
-    <p class="subtitle">转盘决定，不再纠结！</p>
+    <h1>🍺 阿月今天喝什么</h1>
+    <p class="subtitle">转盘决定，今晚喝到爽！</p>
 
     <div class="wheel-wrapper">
         <div class="pointer"></div>
         <canvas id="wheel" width="400" height="400"></canvas>
-        <div class="center-circle">🍽️</div>
+        <div class="center-circle">🍻</div>
     </div>
 
     <div class="controls">
@@ -141,23 +141,23 @@
         <button class="btn btn-stop" id="stopBtn" disabled>⏹ 停！</button>
     </div>
 
-    <div class="result" id="result">今天吃什么呢...</div>
+    <div class="result" id="result">今晚喝什么呢...</div>
 </div>
 
 <script>
     const foods = [
-        '🍜 螺蛳粉', '🍛 咖喱饭', '🍕 披萨', '🌯 卷饼',
-        '🍣 寿司', '🥟 饺子', '🍝 意面', '🍔 汉堡',
-        '🥘 麻辣烫', '🍲 火锅', '🍱 日料', '🥗 沙拉',
-        '🍜 拉面', '🌮 塔可', '🍚 盖浇饭', '🥪 三明治',
-        '🍳 蛋包饭', '🍢 关东煮', '🍠 烤红薯', '🥩 牛排'
+        '🍺 青岛啤酒', '🍺 雪花啤酒', '🍺 哈尔滨啤酒', '🍺 燕京啤酒',
+        '🍺 百威', '🍺 科罗娜', '🍺 喜力', '🍺 福佳白',
+        '🍺 1664', '🍺 精酿IPA', '🥃 茅台', '🥃 五粮液',
+        '🥃 剑南春', '🥃 泸州老窖', '🥃 汾酒', '🥃 洋河',
+        '🥃 郎酒', '🥃 古井贡酒', '🥃 水井坊', '🥃 红星二锅头'
     ];
     const colors = [
-        '#e74c3c', '#e67e22', '#f1c40f', '#2ecc71',
-        '#1abc9c', '#3498db', '#9b59b6', '#e84393',
-        '#fd79a8', '#00cec9', '#6c5ce7', '#d63031',
-        '#fdcb6e', '#00b894', '#0984e3', '#e17055',
-        '#a29bfe', '#55efc4', '#fab1a0', '#81ecec'
+        '#f39c12', '#e67e22', '#d35400', '#e74c3c',
+        '#c0392b', '#8e44ad', '#2c3e50', '#1a5276',
+        '#1f618d', '#117a65', '#f1c40f', '#f39c12',
+        '#e67e22', '#d35400', '#c0392b', '#922b21',
+        '#6c3483', '#1b4f72', '#0e6655', '#7d6608'
     ];
 
     const canvas = document.getElementById('wheel');
@@ -234,7 +234,7 @@
                     spinBtn.disabled = false;
                     stopBtn.disabled = true;
                     const r = getResult(currentAngle);
-                    result.textContent = '🎉 今天吃：' + r;
+                    result.textContent = '🍻 今晚喝：' + r;
                     result.classList.add('highlight');
                     return;
                 }
