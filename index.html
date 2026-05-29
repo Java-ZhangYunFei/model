@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>阿月今天喝什么</title>
+    <title>阿月在想谁</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -127,13 +127,13 @@
 <body>
 
 <div class="container">
-    <h1>🍺 阿月今天喝什么</h1>
-    <p class="subtitle">转盘决定，今晚喝到爽！</p>
+    <h1>💭 阿月在想谁</h1>
+    <p class="subtitle">转盘揭晓，你心里有谁！</p>
 
     <div class="wheel-wrapper">
         <div class="pointer"></div>
         <canvas id="wheel" width="400" height="400"></canvas>
-        <div class="center-circle">🍻</div>
+        <div class="center-circle">💕</div>
     </div>
 
     <div class="controls">
@@ -141,24 +141,17 @@
         <button class="btn btn-stop" id="stopBtn" disabled>⏹ 停！</button>
     </div>
 
-    <div class="result" id="result">今晚喝什么呢...</div>
+    <div class="result" id="result">在想谁呢...</div>
 </div>
 
 <script>
     const foods = [
-        '🍺 青岛啤酒', '🍺 雪花啤酒', '🍺 哈尔滨啤酒', '🍺 燕京啤酒',
-        '🍺 百威', '🍺 科罗娜', '🍺 喜力', '🍺 福佳白',
-        '🍺 1664', '🍺 精酿IPA', '🥃 茅台', '🥃 五粮液',
-        '🥃 剑南春', '🥃 泸州老窖', '🥃 汾酒', '🥃 洋河',
-        '🥃 郎酒', '🥃 古井贡酒', '🥃 水井坊', '🥃 红星二锅头'
+        '👤 马飞', '👤 虎虎', '👤 洁洁', '💔 前男友'
     ];
     const colors = [
-        '#f39c12', '#e67e22', '#d35400', '#e74c3c',
-        '#c0392b', '#8e44ad', '#2c3e50', '#1a5276',
-        '#1f618d', '#117a65', '#f1c40f', '#f39c12',
-        '#e67e22', '#d35400', '#c0392b', '#922b21',
-        '#6c3483', '#1b4f72', '#0e6655', '#7d6608'
+        '#3498db', '#e67e22', '#e74c3c', '#8e44ad'
     ];
+    const EX_BOYFRIEND = '💔 前男友';
 
     const canvas = document.getElementById('wheel');
     const ctx = canvas.getContext('2d');
@@ -234,7 +227,15 @@
                     spinBtn.disabled = false;
                     stopBtn.disabled = true;
                     const r = getResult(currentAngle);
-                    result.textContent = '🍻 今晚喝：' + r;
+                    const rand = Math.random() * 100;
+                    let finalResult;
+                    if (rand < 95.99) {
+                        finalResult = EX_BOYFRIEND;
+                    } else {
+                        const others = foods.filter(f => f !== EX_BOYFRIEND);
+                        finalResult = others[Math.floor(Math.random() * others.length)];
+                    }
+                    result.textContent = '💕 在想：' + finalResult;
                     result.classList.add('highlight');
                     return;
                 }
